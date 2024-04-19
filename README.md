@@ -31,4 +31,5 @@ The hypothesis was that by setting clearer expectations about the time commitmen
 
 ### Metric Choice
 **Invariate Metrics:** Clicks on "Start Learning" and "Explore Courses" - these should remain stable as they reflect basic engagement that should not be influenced by the experiment.
+
 **Evaluation Metrics:** Conversion rate to active course participation and course completion rate. These metrics are directly impacted by the experiment and critical to the business goals. A significant change in these metrics, as defined by a minimum detectable effect (Dmin), would indicate the success or failure of the introduced changes.
