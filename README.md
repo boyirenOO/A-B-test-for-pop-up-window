@@ -30,6 +30,8 @@ The hypothesis was that by setting clearer expectations about the time commitmen
 **Unit of Diversion:** Cookie-based, with further tracking by user-id once a student enrolls in any course.
 
 
+
+
 ### 3.1 Invariate Metrics - Sanity Checks
 
 | Metric Name                         | Metric Formula                    | Dmin        | Notation |
