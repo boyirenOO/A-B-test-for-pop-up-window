@@ -49,7 +49,3 @@ The process of analysis involved the following steps:
   `CI = [p_hat - ME, p_hat + ME]`
   Where `ME` is the margin of error calculated as `Z * SD`.
 
-- **Python Code for Estimating Standard Deviation:**
-  ```python
-  def get_standard_deviation(p, n):
-      return mt.sqrt(p * (1 - p) / n)
