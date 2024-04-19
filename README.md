@@ -29,6 +29,24 @@ The hypothesis was that by setting clearer expectations about the time commitmen
 ### Experiment Details
 **Unit of Diversion:** Cookie-based, with further tracking by user-id once a student enrolls in any course.
 
+
+### 3.1 Invariate Metrics - Sanity Checks
+
+| Metric Name                         | Metric Formula                    | Dmin        | Notation |
+|-------------------------------------|-----------------------------------|-------------|----------|
+| Number of Cookies in Course Overview Page | # unique daily cookies on page  | 3000 cookies| Ck       |
+| Number of Clicks on Free Trial Button     | # unique daily cookies who clicked | 240 clicks  | Cl       |
+| Free Trial button Click-Through-Probability | Cl / Ck                         | 0.01        | CTP      |
+
+### 3.2 Evaluation Metrics - Performance Indicators
+
+| Metric Name     | Metric Formula      | Dmin   | Notation        |
+|-----------------|---------------------|--------|-----------------|
+| Gross Conversion | enrolled / Cl       | 0.01   | ConversionGross |
+| Retention       | paid / enrolled     | 0.01   | Retention       |
+| Net Conversion  | paid / Cl           | 0.0075 | ConversionNet   |
+
+
 ### Metric Choice
 **Invariate Metrics:** Clicks on "Start Learning" and "Explore Courses" - these should remain stable as they reflect basic engagement that should not be influenced by the experiment.
 
