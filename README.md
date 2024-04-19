@@ -1,55 +1,55 @@
-# A-B-test-for-pop-up-window
-
-## Washu Career Development Center: A/B Testing Course
-
-### Introduction to A/B Testing at Washu
-Washu's Career Development Center offers an insightful course on A/B Testing, also known as split tests. These are online experiments aimed at evaluating potential enhancements on the Career Development Center's course website. This course involves a walkthrough of a Python notebook focused on a real-world project, the "Study Plan" pop-up.
+## Washu Career Development Center Website Pop-up A/B Test
 
 ### Experiment Overview
-**Experiment Name:** "Study Plan" Pop-up
+**Experiment Name:** "Study Plan" Pop-up A/B Test
 
-**Conducted by:** Washu Career Development Center
+**Conducted by:** Washu Career Development Center Course Website Team
 
-**Business Goal:**
-The main objective is to maximize the completion rate of our career development courses by students.
+**Objective:**
+- Introduce a "Study Plan" pop-up on the homepage to potentially increase the course completion rates among students. Randomly divide users into experimental and control groups.
+- Collect data from the website backend over a 1-month period, acquiring over 1000 data points regarding cookie counts and attendance rates from both groups.
+- Set clicks and pageviews as invariant metrics; conversion and completion rates as experimental metrics. Determine the right pivot quantities to construct confidence intervals and assess the significance of changes.
 
-### Current Conditions Before the Change
-Prior to the experiment, the homepage of our career development courses presented two main options:
-- **Start Learning:** Upon selecting this option, students are introduced to the course content immediately.
-- **Explore Courses:** This option allows students to browse course materials freely without enrollment.
+### Metrics:
+- **Invariant Metrics:** Clicks (`Ck`) and pageviews (`Cv`), expected to remain unchanged and serve as sanity checks.
+- **Evaluation Metrics:** Conversion rates (`Cr`) and completion rates (`Cm`), which are essential for measuring the experiment's success.
 
-### Description of the Experimented Change
-In the experiment, a new "Study Plan" pop-up was introduced on the course homepage. When students chose to start learning, they were prompted to enter their available study hours per week:
-- **5 or more hours:** Students proceed to access the course as usual.
-- **Less than 5 hours:** A message suggested that successfully completing the course typically requires a greater time commitment, offering them the option to freely explore course materials instead.
+### Outcome:
+- Analysis indicated no significant impact on completion rates due to the pop-up. Recommendation was made to the Career Center to consider discontinuing the pop-up based on these results.
 
-### Experiment Hypothesis
-The hypothesis was that by setting clearer expectations about the time commitment required upfront, the number of students who leave the course due to inadequate time would decrease, without significantly affecting the overall course completion rates. If proven true, this could enhance the student experience and allow better support from the center's staff for students more likely to complete the courses.
+### Analysis Summary:
+The process of analysis involved the following steps:
 
-### Experiment Details
-**Unit of Diversion:** Cookie-based, with further tracking by user-id once a student enrolls in any course.
+1. **Baseline Value Estimation:**
+   Estimators for metrics were calculated to understand their behavior before the change.
 
+2. **Standard Deviation Estimation:**
+   We calculated the Standard Deviation to gauge the variability of metrics, essential for sample size calculations and confidence intervals.
 
+3. **Sample Size Sizing:**
+   Determined the minimum number of samples required for the experiment to have enough statistical power and significance.
 
+4. **Sanity Checks:**
+   Verified the experiment's proper execution and the correct collection of data through sanity checks for invariant metrics.
 
-### 3.1 Invariate Metrics - Sanity Checks
+5. **Effect Size Analysis:**
+   Examined the differences in evaluation metrics between control and experiment groups to assess both statistical and practical significance.
 
-| Metric Name                         | Metric Formula                    | Dmin        | Notation |
-|-------------------------------------|-----------------------------------|-------------|----------|
-| Number of Cookies in Course Overview Page | # unique daily cookies on page  | 3000 cookies| Ck       |
-| Number of Clicks on Free Trial Button     | # unique daily cookies who clicked | 240 clicks  | Cl       |
-| Free Trial button Click-Through-Probability | Cl / Ck                         | 0.01        | CTP      |
+### Key Formulas and Outputs:
 
-### 3.2 Evaluation Metrics - Performance Indicators
+- **Variance Calculation for Binomial Distribution:**
+  `SD = sqrt(p * (1-p) / n)`
+  Where `p` is the probability of success, and `n` is the sample size.
 
-| Metric Name     | Metric Formula      | Dmin   | Notation        |
-|-----------------|---------------------|--------|-----------------|
-| Gross Conversion | enrolled / Cl       | 0.01   | ConversionGross |
-| Retention       | paid / enrolled     | 0.01   | Retention       |
-| Net Conversion  | paid / Cl           | 0.0075 | ConversionNet   |
+- **Z-score Calculation:**
+  `Z = norm.ppf(1-alpha/2)`
+  Determines the critical value at the desired confidence level.
 
+- **Confidence Interval for observed conversion rate (`p_hat`):**
+  `CI = [p_hat - ME, p_hat + ME]`
+  Where `ME` is the margin of error calculated as `Z * SD`.
 
-### Metric Choice
-**Invariate Metrics:** Clicks on "Start Learning" and "Explore Courses" - these should remain stable as they reflect basic engagement that should not be influenced by the experiment.
-
-**Evaluation Metrics:** Conversion rate to active course participation and course completion rate. These metrics are directly impacted by the experiment and critical to the business goals. A significant change in these metrics, as defined by a minimum detectable effect (Dmin), would indicate the success or failure of the introduced changes.
+- **Python Code for Estimating Standard Deviation:**
+  ```python
+  def get_standard_deviation(p, n):
+      return mt.sqrt(p * (1 - p) / n)
