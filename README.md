@@ -1,5 +1,9 @@
 ## Washu Career Development Center Website Pop-up A/B Test
 
+### For detailed calculation and outcome, please view the jupyter notebook file. ###
+
+## Washu Career Development Center Website Pop-up A/B Test
+
 ### Experiment Overview
 **Experiment Name:** "Study Plan" Pop-up A/B Test
 
@@ -48,4 +52,23 @@ The process of analysis involved the following steps:
 - **Confidence Interval for observed conversion rate (`p_hat`):**
   `CI = [p_hat - ME, p_hat + ME]`
   Where `ME` is the margin of error calculated as `Z * SD`.
+
+### Results from Calculations:
+- **Gross Conversion SD:** 0.0202
+- **Retention SD:** 0.0549
+- **Net Conversion SD:** 0.0156
+
+### Detailed Analysis of Results:
+#### Sanity Checks:
+- Pageviews and clicks matched expected distributions, passing sanity checks.
+- Click-through-probability on the "Study Plan" pop-up fell within the expected range.
+
+#### Effect Size Tests:
+- Gross Conversion had a statistically significant decrease, suggesting fewer students enrolled after seeing the pop-up.
+- Net Conversion did not show a statistically significant decrease, indicating that the pop-up did not deter students from continuing past the free trial.
+
+#### Practical Significance:
+- While Gross Conversion met the practical significance criteria (dmin = 0.01), Net Conversion did not (dmin = 0.0075).
+- The decrease in Gross Conversion was significant enough to suggest the pop-up may deter some students from enrolling.
+
 
